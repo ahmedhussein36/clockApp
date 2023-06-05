@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Digit Clock App</h1>
+        </div>
+        <div class="clock">
+            <div class="days">
+                <ul>
+                    <li id="sat">Sat</li>
+                    <li id="sun">Sun</li>
+                    <li id="mon">Mon</li>
+                    <li id="tus">Tus</li>
+                    <li id="wed">Wed</li>
+                    <li id="thu">Thu</li>
+                    <li id="fri">Fri</li>
+                </ul>
+            </div>
+            <div class="tm">
+                <div class="time">
+                    <div class="hm">
+                        <span class="hrs"></span>
+                    </div>
+                    <div class="rm">
+                        <span class="min"></span>
+                        <div class="dm">
+                            <span class="sec"></span>
+                        </div>
+                    </div>
+                    <span class="dn"></span>
+                </div>
+                <div class="date">
+                    <span class="day"></span>
+                    <span class="month"></span>
+                    <span class="year"></span>
+                </div>
+            </div>
+            
+        </div>
+        <div style="display: none;">
+            <button>Digit</button>
+            <button>Analog</button>
+        </div>
+        
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

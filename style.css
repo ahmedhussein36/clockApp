@@ -1,0 +1,150 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg-color);
+    color: #e1e1e1;
+    min-height: 100vh;
+    background-image: url(cover.jpg);
+    background-size: cover;
+}
+
+.container {
+    position: relative;
+    max-width: 600px;
+    min-width: 370px;
+    margin: auto;
+    padding: 30px;
+}
+
+.clock {
+    position: relative;
+    transform: translateY(30%);
+    background: #000b2e78;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    /* box-shadow: 2px 2px 26px #080f2eaa; */
+    backdrop-filter: blur(4px)
+}
+
+.title {
+    padding: 15px;
+    transform: translateY(60%);
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.clock .days {
+    width: 25%;
+    display: flex;
+    padding: 15px;
+}
+
+.clock .days ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.clock .days ul li {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+.active {
+    background: #00ddd9;
+    color: #040c29;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.time {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 2.5rem;
+    margin: 15px;
+    padding: 15px;
+}
+
+.time>div {
+    margin: 0 10px;
+    text-align: center;
+    width: auto;
+}
+
+
+
+.time .hrs {
+    font-size: 6rem;
+    color: #ffffff ;
+    font-weight: 500;
+}
+
+.time .mins {
+    font-size: 2.5rem;
+
+}
+
+.time .secs {
+    font-size: 2.5rem;
+}
+
+.time .dm {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.time .rm {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+
+.time .dn {
+    font-size: 1.5rem;
+    color: #f39624;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin: 15px;
+    padding: 15px;
+}
+
+.date span {
+    margin: 0 10px;
+    text-align: center;
+    width: auto;
+}
