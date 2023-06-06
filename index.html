@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="title">
-            <h1>Digit Clock App</h1>
+            <h1>Clock App</h1>
         </div>
         <div class="clock">
             <div class="days">
@@ -27,31 +27,51 @@
                 </ul>
             </div>
             <div class="tm">
-                <div class="time">
+                <div class="con-time">
+                    <div class="time">
                     <div class="hm">
                         <span class="hrs"></span>
                     </div>
                     <div class="rm">
                         <span class="min"></span>
-                        <div class="dm">
-                            <span class="sec"></span>
-                        </div>
+                        <span class="sec"></span>
                     </div>
                     <span class="dn"></span>
                 </div>
+                </div>
+                
+
+                <div class="con-analog">
+                    <div class="analog">
+                    <div class="hour">
+                        <div class="hr" id="hr"></div>
+                    </div>
+                    <div class="min">
+                        <div class="mn" id="mn"></div>
+                    </div>
+                    <div class="sec">
+                        <div class="sc" id="sc"></div>
+                    </div>
+                    <div class="img"><img src="clock-1.png"  width="170px" alt="clock-face"></div>
+                </div>
+                </div>
+
+                
                 <div class="date">
                     <span class="day"></span>
                     <span class="month"></span>
                     <span class="year"></span>
                 </div>
             </div>
-            
+
         </div>
-        <div style="display: none;">
-            <button>Digit</button>
-            <button>Analog</button>
-        </div>
+
         
+        <div class="controls">
+            <button id="dig">Digit</button>
+            <button id="anlg">Analog</button>
+        </div>
+
     </div>
     <script src="app.js"></script>
 </body>

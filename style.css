@@ -7,7 +7,8 @@ html {
     list-style: none;
     margin: 0;
     padding: 0;
-    transition: 0.3s;
+    color: #d4d4d4;
+
 }
 
 *:focus {
@@ -17,14 +18,12 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: var(--bg-color);
-    color: #e1e1e1;
     min-height: 100vh;
     background-image: url(cover.jpg);
     background-size: cover;
 }
 
 .container {
-    position: relative;
     max-width: 600px;
     min-width: 370px;
     margin: auto;
@@ -32,13 +31,10 @@ body {
 }
 
 .clock {
-    position: relative;
-    transform: translateY(30%);
     background: #000b2e78;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     padding: 30px;
     border-radius: 10px;
@@ -48,17 +44,32 @@ body {
 
 .title {
     padding: 15px;
-    transform: translateY(60%);
     width: 100%;
-    font-size: 2rem;
     text-align: center;
-    color: #ffffff;
+}
+
+.title h1 {
+    font-size: 4rem;
+    color: #ffff;
+}
+
+@media screen and (max-device-width: 480px) {
+    .title h1 {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
 }
 
 .clock .days {
     width: 25%;
     display: flex;
     padding: 15px;
+    justify-content: flex-start;
+}
+
+.clock .tm {
+    margin: auto;
 }
 
 .clock .days ul {
@@ -67,18 +78,21 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
+
 }
 
 .clock .days ul li {
     font-size: 16px;
     font-weight: 500;
     padding: 5px 10px;
+    color: #ffffff92;
 }
 
 .active {
-    background: #00ddd9;
-    color: #040c29;
+    background: #000b2e78;
+    color: #ffffff !important;
     font-weight: 700;
+    border: none;
     border-radius: 5px;
 }
 
@@ -86,8 +100,7 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 2.5rem;
-    margin: 15px;
+    margin: 15px auto;
     padding: 15px;
 }
 
@@ -101,16 +114,16 @@ body {
 
 .time .hrs {
     font-size: 6rem;
-    color: #ffffff ;
+    color: #ffffff;
     font-weight: 500;
 }
 
-.time .mins {
-    font-size: 2.5rem;
+.time .min {
+    font-size: 2.7rem;
 
 }
 
-.time .secs {
+.time .sec {
     font-size: 2.5rem;
 }
 
@@ -130,21 +143,164 @@ body {
 
 
 .time .dn {
-    font-size: 1.5rem;
     color: #f39624;
+    font-size: 1.5rem !important;
 }
 
 .date {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    margin: 15px;
+    font-size: 1.2rem;
+    margin: 15px auto;
     padding: 15px;
 }
 
 .date span {
-    margin: 0 10px;
+    margin: 0 5px;
     text-align: center;
-    width: auto;
+}
+
+.analog {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    background: #000000;
+    border-radius: 100%;
+    border: 1px solid #00b3ffd6;
+
+}
+
+
+.analog::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    position: absolute;
+    border-radius: 100%;
+    z-index: 999;
+}
+
+.analog .hour,
+.analog .min,
+.analog .sec {
+    position: absolute;
+}
+
+.analog .hour .hr {
+    width: 120px;
+    height: 120px;
+}
+
+.analog .min .mn {
+    width: 140px;
+    height: 140px;
+}
+
+.analog .sec .sc {
+    width: 180px;
+    height: 180px;
+}
+
+.hr,
+.mn,
+.sc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hr::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 50px;
+    background: #ff105e;
+    border-radius: 4px 4px 0 0;
+    top: 12px;
+    z-index: 10;
+}
+
+.mn::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 4px 4px 0 0;
+    top: 15px;
+    z-index: 11;
+}
+
+.sc::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 70px;
+    background: #c0c0c0;
+    border-radius: 4px 4px 0 0;
+    top: 30px;
+    z-index: 12;
+
+}
+
+.controls {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls button {
+    border: none;
+    padding: 10px 20px;
+    width: 120px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 50px;
+    background: #000b2e78;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.controls button:hover {
+    background: #000b2ebb
+}
+
+.controls button:active {
+    background: #000b2ebb;
+    scale: 110%;
+}
+
+@media screen and (max-device-width: 480px) {
+    .time .hrs {
+        font-size: 5rem;
+    }
+
+    .time .min {
+        font-size: 1.5rem;
+    }
+
+    .time .sec {
+        font-size: 1.5rem;
+    }
+
+    .clock {
+        padding: 15px;
+    }
+
+    .clock .days {
+        padding: 5px;
+    }
+
+    .clock .days ul {
+        padding: 5px;
+    }
+
 }

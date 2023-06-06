@@ -1,4 +1,4 @@
-let days = ["sat", "sun", "mon", "tus", "wed", "thu", "fri"];
+let days = ["sun", "mon", "tus", "wed", "thu", "fri", "sat"];
 let months = [
     "Jan",
     "Feb",
@@ -15,8 +15,15 @@ let months = [
 ];
 
 let interval;
+let anlgInterval;
+// run the clock
+interval = setInterval(digitClock, 1000);
 
+//========== Digit clock function =========================
 function digitClock() {
+    document.querySelector(".con-analog").style.display = "none";
+    document.querySelector(".con-time").style.display = "block";
+
     let currentDate = new Date();
 
     //Get Date
@@ -52,6 +59,44 @@ function digitClock() {
     // add days document
     document.getElementById(days[today]).classList.add("active");
 }
+digitClock();
+//=========================================================================================
 
-// run the clock
-interval = setInterval(digitClock, 1000);
+//=========== Analog Clock Function =========================
+
+const hr = document.querySelector(".analog #hr");
+const mn = document.querySelector(".analog #mn");
+const sc = document.querySelector(" .analog #sc");
+
+function analogClock() {
+    document.querySelector(".con-time").style.display = "none";
+    document.querySelector(".con-analog").style.display = "block";
+
+    let currDate = new Date();
+
+    let hh = currDate.getHours() * 30;
+    let mm = currDate.getMinutes() * 6;
+    let ss = currDate.getSeconds() * 6;
+
+    // console.log(hh ,mm, ss)
+
+    hr.style.transform = `rotateZ(${hh + mm / 12}deg)`;
+    mn.style.transform = `rotateZ(${mm}deg)`;
+    sc.style.transform = `rotateZ(${ss}deg)`;
+}
+
+const analogBtn = document.querySelector(".controls #anlg");
+const digitBtn = document.querySelector(".controls #dig");
+
+analogBtn.onclick = () => {
+    clearInterval(interval);
+    anlgInterval = setInterval(analogClock, 1000);
+};
+
+digitBtn.onclick = () => {
+    if (anlgInterval) {
+        clearInterval(anlgInterval);
+    }
+
+    interval = setInterval(digitClock, 1000);
+};
